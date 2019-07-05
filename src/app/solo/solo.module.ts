@@ -8,7 +8,7 @@ import { SoloRoutingModule } from './solo-routing.module';
 import { SoloListagemComponent } from './solo-listagem/solo-listagem.component';
 import { SoloCadastarComponent } from './solo-cadastar/solo-cadastar.component';
 import { SoloEditarComponent } from './solo-editar/solo-editar.component';
-import { SoloService } from './solo.service';
+
 
 @NgModule({
   declarations: [SoloListagemComponent, SoloCadastarComponent, SoloEditarComponent],
@@ -17,6 +17,6 @@ import { SoloService } from './solo.service';
     SoloRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [SoloService]
+  providers: []
 })
 export class SoloModule { }
