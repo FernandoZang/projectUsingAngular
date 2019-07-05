@@ -12,6 +12,8 @@ export class SoloCadastarComponent implements OnInit {
 
   formulario: FormGroup
 
+  message: string;
+
   constructor(
     private formBuilder: FormBuilder,
     private soloService: SoloService,
@@ -26,14 +28,31 @@ export class SoloCadastarComponent implements OnInit {
     });
   }
 
+
+
   onSubmit(){
     
-    this.soloService.cadastrarSolo(this.formulario.value); // não precisa do Json Stringfy
-    //console.log(this.formulario.value);
+    this.soloService.cadastrar(this.f.description.value).subscribe(
+      () =>{
+        this.route.navigate(['solos']);
+      },
+      (error) => {
+        this.message = error;
+      }
+    ); // não precisa do Json Stringfy
+    console.log(this.formulario.value);
     console.log(JSON.stringify(this.formulario.value));
-    this.route.navigate(['solos']);
+    
   }
 
+
+
+
+  get f() {
+    return this.formulario.controls;
+  }
+
+  
 
   
 }

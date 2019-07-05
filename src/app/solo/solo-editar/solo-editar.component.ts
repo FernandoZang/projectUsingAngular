@@ -1,7 +1,11 @@
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { Solo } from './../Solo';
+
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { SoloService } from '../solo.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-solo-editar',
@@ -10,24 +14,28 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SoloEditarComponent implements OnInit {
 
-  solo: any;
-
-  id: number;
   
-  formulario: FormGroup
+
+  id;
+  //description;
+  
+  public formulario: FormGroup
 
   private sub: any;
 
-
-
+  
+  message: string;
 
 
   constructor(
     private soloService: SoloService,
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private route: Router
-  ) { }
+    private router: Router
+  ) {
+   }
+
+   public solo: Solo;
 
 
 
@@ -36,35 +44,39 @@ export class SoloEditarComponent implements OnInit {
     this.sub = this.activatedRoute.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
     });
-    
-    this.getById(this.id);
 
     this.formulario = this.formBuilder.group({
-      description: [this.solo.description]
+      description: [null]
     });
 
-    //this.getById(this.id);
-    //this.formulario.value.description = this.solo.description;
+    this.getById(this.id);
 
-    //console.log("Solo: " + this.solo.description);
+    //this.f.description.setValue(this.solo.description);
+
+  }//onInit
+
+
+  private getById(id: number){
+    this.soloService.getById(this.id).subscribe( (dados:Solo) =>{ this.solo = dados; });
   }
 
 
 
 
-  getById(id: number){
-    this.soloService.getSoilById(id).subscribe( dados => this.solo = dados);
-    console.log("SOLO: " + this.solo);
+  get f() {
+    return this.formulario.controls;
   }
 
 
 
 
   onSubmit(){
-    this.soloService.cadastrarSolo(this.formulario.value); // não precisa do Json Stringfy
-    //console.log(this.formulario.value);
-    console.log(JSON.stringify(this.formulario.value));
-    this.route.navigate(['solos']);
+    this.soloService.editar(this.id, this.f.description.value).subscribe(() => {
+      this.router.navigate(['solos']);
+    },
+    (error) => {
+      this.message = error;
+    });
   }
 
 }

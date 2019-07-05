@@ -1,3 +1,4 @@
+import { Solo } from './../Solo';
 import { Component, OnInit } from '@angular/core';
 import { SoloService } from '../solo.service';
 
@@ -19,8 +20,9 @@ export class SoloListagemComponent implements OnInit {
   }
 
   public listarSolos(){
-    console.log(this.solos)
-    this.soloService.getSolos().subscribe(dados=>this.solos = dados);
+    //console.log(this.solos)
+    this.soloService.getAll().subscribe(dados=>this.solos = dados);
+   
   }
 
 }
