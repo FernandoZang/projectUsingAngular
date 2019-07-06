@@ -6,12 +6,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { SoloListagemComponent } from './solo-listagem/solo-listagem.component';
 import { SoloEditarComponent } from './solo-editar/solo-editar.component';
+import { SoloDetalhesComponent } from './solo-detalhes/solo-detalhes.component';
 
 
 const routes: Routes = [
   {path: 'solos', component: SoloListagemComponent, canActivate: [AuthGuard]},
   {path: 'solo/cadastrar', component: SoloCadastarComponent, canActivate: [AuthGuard]},
-  {path: 'solo/editar/:id', component: SoloEditarComponent, canActivate: [AuthGuard]}
+  {path: 'solo/editar/:id', component: SoloEditarComponent, canActivate: [AuthGuard]},
+  {path: 'solo/detalhes/:id', component: SoloDetalhesComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

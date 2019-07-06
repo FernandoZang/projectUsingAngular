@@ -1,0 +1,28 @@
+
+<h1>Solo Detalhes</h1>
+
+<form class="form-horizontal" [formGroup]="formulario" (ngSubmit)="onSubmit()" >
+    <div class="form-group"> <!--DESCRIÇÃO-->
+      <div class="col-sm-12">
+          <label for="description" class="control-label">Descrição</label>
+      </div>
+      <div class="col-sm-12">
+          <input type="text" class="form-control" formControlName="description" id="description" value="{{solo.description }}">
+      </div>
+    </div>
+    <div class="form-group"> <!--Data Criação-->
+      <div class="col-sm-12">
+          <label for="createdAt" class="control-label">Data Criação</label>
+      </div>
+      <div class="col-sm-12">
+          <input type="datetime" class="form-control" formControlName="createdAt" id="createdAt" value="{{solo.createdAt }}">
+      </div>
+    </div>
+    <div class="form-group col-sm-12">
+        <a style="margin: 2px" class="btn btn-success" [routerLink]="[ '/solos']">Solos</a>
+        <a style="margin: 2px" class="btn btn-primary" [routerLink]="[ '/solo/editar', solo.id ]">Editar</a>
+        <a style="margin: 2px" class="btn btn-danger" [routerLink]="[ '/solo/deletar', solo.id ]">Deletar</a>
+    </div>
+
+  
+</form>

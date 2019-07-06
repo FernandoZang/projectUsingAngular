@@ -30,7 +30,7 @@ export class SoloService {
 
   public getAll = () : Observable<Solo[]> => {
     let cabecalho: HttpHeaders = this.getHeaders();
-    let url = getDefaultURL('soil/all');
+    let url = getDefaultURL('soil');
     return this.httpClient.get<Solo[]>( url, {headers: cabecalho} ).pipe(catchError(this.handleError));
   }
 

@@ -9,10 +9,11 @@ import { SoloListagemComponent } from './solo-listagem/solo-listagem.component';
 import { SoloCadastarComponent } from './solo-cadastar/solo-cadastar.component';
 import { SoloEditarComponent } from './solo-editar/solo-editar.component';
 import { SoloService } from './solo.service';
+import { SoloDetalhesComponent } from './solo-detalhes/solo-detalhes.component';
 
 
 @NgModule({
-  declarations: [SoloListagemComponent, SoloCadastarComponent, SoloEditarComponent],
+  declarations: [SoloListagemComponent, SoloCadastarComponent, SoloEditarComponent, SoloDetalhesComponent],
   imports: [
     CommonModule,
     SoloRoutingModule,
