@@ -1,3 +1,4 @@
+import { SoloDeletarComponent } from './solo-deletar/solo-deletar.component';
 import { AuthGuard } from './../login/login/auth.guard';
 import { SoloCadastarComponent } from './solo-cadastar/solo-cadastar.component';
 
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'solos', component: SoloListagemComponent, canActivate: [AuthGuard]},
   {path: 'solo/cadastrar', component: SoloCadastarComponent, canActivate: [AuthGuard]},
   {path: 'solo/editar/:id', component: SoloEditarComponent, canActivate: [AuthGuard]},
-  {path: 'solo/detalhes/:id', component: SoloDetalhesComponent, canActivate: [AuthGuard]}
+  {path: 'solo/detalhes/:id', component: SoloDetalhesComponent, canActivate: [AuthGuard]},
+  {path: 'solo/deletar/:id', component: SoloDeletarComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

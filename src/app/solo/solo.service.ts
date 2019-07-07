@@ -68,6 +68,14 @@ export class SoloService {
       .pipe(catchError(this.handleError));
   }
 
+  public deletar(id: number){
+    let cabecalho: HttpHeaders = this.getHeaders();
+    let url = getDefaultURL('soil/' + id);
+    return this.httpClient
+      .delete( url, {headers: cabecalho} )
+      .pipe(catchError(this.handleError));
+  }
+
 
 
 
@@ -95,7 +103,6 @@ export class SoloService {
         default:
           console.log(`Backend returned code ${error.status}, ` + `body was: ${error.error}` + '\n Contate o administrador');
       }
-
     }
     return throwError('Something bad happened; please try again later.');
   }

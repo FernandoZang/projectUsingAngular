@@ -1,5 +1,5 @@
 
-<h1 class="col-sm-12" >Solo Detalhes</h1>
+<h1 class="col-sm-12" >Deletar Solo?</h1>
 
 <form class="form-horizontal" [formGroup]="formulario" (ngSubmit)="onSubmit()" >
     <div class="form-group"> <!--DESCRIÇÃO-->
@@ -19,9 +19,9 @@
       </div>
     </div>
     <div class="form-group col-sm-12">
-        <a style="margin: 2px" class="btn btn-success" [routerLink]="[ '/solos']">Solos</a>
+        <button type="submit" class="btn btn-danger">Deletar</button>
+        <a style="margin: 2px" class="btn btn-success" [routerLink]="[ '/solos']">Listagem de Solos</a>
         <a style="margin: 2px" class="btn btn-primary" [routerLink]="[ '/solo/editar', solo.id ]">Editar</a>
-        <a style="margin: 2px" class="btn btn-danger" [routerLink]="[ '/solo/deletar', solo.id ]">Deletar</a>
     </div>
 
   
