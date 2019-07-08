@@ -1,5 +1,5 @@
 export const API = {
-    default: 'http://200.134.18.55:8080/adb-api-data/'
+    default: 'http://agdatabox.md.utfpr.edu.br/apidata/v2/'
 }
 
 export function getDefaultURL(resource: string){

@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { SoloService } from '../solo.service';
@@ -23,6 +24,8 @@ export class SoloDetalhesComponent implements OnInit {
 
   public solo: Solo;
 
+  private obsSolo :Observable<Solo>;
+
 
   constructor(
     private soloService: SoloService,
@@ -45,9 +48,14 @@ export class SoloDetalhesComponent implements OnInit {
   }//ngOnInit
 
   private getById(id: number){
-    this.soloService.getById(this.id).subscribe( (dados:Solo) =>{ this.solo = dados; });
+    this.soloService.getById(this.id).subscribe( (dados:Solo) =>{
+       this.solo = dados;
+       let d = new Date(dados.createdAt);
+       dados.createdAt = d.getFullYear() + "/" + (d.getUTCMonth()+1) + "/" + d.getDate();
+       console.log("Solo date: " + d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate()  )
+    });
+    
   }
-
 
 
 
