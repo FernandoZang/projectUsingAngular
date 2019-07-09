@@ -1,15 +1,18 @@
 import { AuthGuard } from './../login/login/auth.guard';
-import { DataFormComponent } from './data-form/data-form.component';
+import { AreaListagemComponent } from './area-listagem/area-listagem.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+
+
 const routes: Routes = [
-  {path: 'agro', component: DataFormComponent, canActivate:[AuthGuard]},
-  {path: '', component: DataFormComponent, canActivate:[AuthGuard]}
+  {path: 'areas', component: AreaListagemComponent, canActivate: [AuthGuard]},
 ];
+
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class DataFormRoutingModule { }
+export class AreaRoutingModule { }

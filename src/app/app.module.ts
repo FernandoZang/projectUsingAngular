@@ -1,3 +1,4 @@
+import { AreaModule } from './area/area.module';
 import { CulturaModule } from './cultura/cultura.module';
 import { SoloService } from './solo/solo.service';
 import { AuthUtilService } from './login/auth-util.service';
@@ -27,7 +28,8 @@ import { HeaderComponent } from './header/header.component';
     SoloModule,
     HttpClientModule,
     LoginModule,
-    CulturaModule
+    CulturaModule,
+    AreaModule
     
   ],
   providers: [],

@@ -103,6 +103,9 @@ export class SoloService {
         case 403:
           alert("Registro já cadastrado da api");
             break;
+        case 404:
+          alert("Registro não existe na api");
+            break;
         default:
           console.log(`Backend returned code ${error.status}, ` + `body was: ${error.error}` + '\n Contate o administrador');
       }
