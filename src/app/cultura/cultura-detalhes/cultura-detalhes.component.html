@@ -1,3 +1,28 @@
-<p>
-  cultura-detalhes works!
-</p>
+
+<h1 class="col-sm-12" >Cultura Detalhes</h1>
+
+<form class="form-horizontal" [formGroup]="formulario" (ngSubmit)="onSubmit()" >
+    <div class="form-group"> <!--DESCRIÇÃO-->
+      <div class="col-sm-12">
+          <label for="description" class="control-label">Descrição:</label>
+      </div>
+      <div class="col-sm-12">
+          <input type="text" class="form-control" formControlName="description" id="description" value="{{cultura.description }}">
+      </div>
+    </div>
+    <div class="form-group"> <!--Data Criação-->
+      <div class="col-sm-12">
+          <label for="createdAt" class="control-label">Data Cadastro:</label>
+      </div>
+      <div class="col-sm-12">
+          <input type="datetime" disabled class="form-control" formControlName="createdAt" id="createdAt" value="{{cultura.createdAt}}">
+      </div>
+    </div>
+    <div class="form-group col-sm-12">
+        <a style="margin: 2px" class="btn btn-success" [routerLink]="[ '/culturas']">Culturas</a>
+        <a style="margin: 2px" class="btn btn-primary" [routerLink]="[ '/cultura/editar', cultura.id ]">Editar</a>
+        <a style="margin: 2px" class="btn btn-danger" [routerLink]="[ '/cultura/deletar', cultura.id ]">Deletar</a>
+    </div>
+
+  
+</form>
