@@ -6,9 +6,11 @@ import { CulturaListagemComponent } from './cultura-listagem/cultura-listagem.co
 import { ReactiveFormsModule } from '@angular/forms';
 import { CulturaService } from './cultura.service';
 import { CulturaCadastrarComponent } from './cultura-cadastrar/cultura-cadastrar.component';
+import { CulturaEditarComponent } from './cultura-editar/cultura-editar.component';
+import { CulturaDetalhesComponent } from './cultura-detalhes/cultura-detalhes.component';
 
 @NgModule({
-  declarations: [CulturaListagemComponent, CulturaCadastrarComponent],
+  declarations: [CulturaListagemComponent, CulturaCadastrarComponent, CulturaEditarComponent, CulturaDetalhesComponent],
   imports: [
     CommonModule,
     CulturaRoutingModule,

@@ -46,6 +46,30 @@ export class CulturaService {
 
 
 
+  public getById(id: number){
+    let cabecalho: HttpHeaders = this.getHeaders();
+    let url = getDefaultURL('culture/' + id);
+    console.log("url getById: " + url);
+    this.result = this.httpClient.get<Cultura>( url, {headers: cabecalho} ).pipe(catchError(this.handleError));
+    return this.result;
+  }
+
+
+
+
+  public editar(id: number, description: string) {
+    const body = JSON.stringify({ id: id, description: description });
+    console.log("enviando: " + body);
+    return this.httpClient
+      .put( getDefaultURL('culture'), body, { headers: this.getHeaders() })
+      .pipe(catchError(this.handleError));
+  }
+
+
+
+
+
+
 
 
 
@@ -66,7 +90,10 @@ export class CulturaService {
             console.log("Ocorrência já cadastrada");
             break;
         case 400:
-          console.log("Ocorrência já cadastrada");
+          alert("Registro já cadastrado da api");
+            break;
+        case 403:
+          alert("Registro já cadastrado da api");
             break;
         default:
           console.log(`Backend returned code ${error.status}, ` + `body was: ${error.error}` + '\n Contate o administrador');

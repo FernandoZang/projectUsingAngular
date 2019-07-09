@@ -42,15 +42,15 @@ export class SoloService {
     return this.httpClient.get<Solo>( url, {headers: cabecalho} ).pipe(catchError(this.handleError));
   }
   */
- public getById(id: number){
-  let cabecalho: HttpHeaders = this.getHeaders();
-  let url = getDefaultURL('soil/' + id);
-  console.log("url getById: " + url);
-  this.result = this.httpClient.get<Solo>( url, {headers: cabecalho} ).pipe(catchError(this.handleError));
-  //let solo: Solo;
-  //result.subscribe(data=> console.log(data) );
-  return this.result;
-}
+  public getById(id: number){
+    let cabecalho: HttpHeaders = this.getHeaders();
+    let url = getDefaultURL('soil/' + id);
+    console.log("url getById: " + url);
+    this.result = this.httpClient.get<Solo>( url, {headers: cabecalho} ).pipe(catchError(this.handleError));
+    //let solo: Solo;
+    //result.subscribe(data=> console.log(data) );
+    return this.result;
+  }
 
   public cadastrar(description: string){
     const body = JSON.stringify({description});
@@ -98,7 +98,10 @@ export class SoloService {
             console.log("Ocorrência já cadastrada");
             break;
         case 400:
-          console.log("Ocorrência já cadastrada");
+         alert("Registro já cadastrado da api");
+            break;
+        case 403:
+          alert("Registro já cadastrado da api");
             break;
         default:
           console.log(`Backend returned code ${error.status}, ` + `body was: ${error.error}` + '\n Contate o administrador');
