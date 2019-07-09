@@ -40,7 +40,7 @@ export class CulturaService {
   public cadastrar(description: string){
     const body = JSON.stringify({description});
     let cabecalho: HttpHeaders = this.getHeaders();
-    let url = getDefaultURL('cultura');
+    let url = getDefaultURL('culture');
     return this.httpClient.post( url, body, {headers: cabecalho} ).pipe(catchError(this.handleError));
   }
 
