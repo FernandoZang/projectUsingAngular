@@ -1,3 +1,4 @@
+import { CulturaModule } from './cultura/cultura.module';
 import { SoloService } from './solo/solo.service';
 import { AuthUtilService } from './login/auth-util.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -25,7 +26,8 @@ import { HeaderComponent } from './header/header.component';
     ReactiveFormsModule, // importa esse module globalmente para todo o projeto app // se importar no modulo de funcionalidade é necessário importar aqui tmb????
     SoloModule,
     HttpClientModule,
-    LoginModule
+    LoginModule,
+    CulturaModule
     
   ],
   providers: [],
