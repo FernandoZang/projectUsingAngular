@@ -68,6 +68,14 @@ export class CulturaService {
 
 
 
+  public deletar(id: number){
+    let cabecalho: HttpHeaders = this.getHeaders();
+    let url = getDefaultURL('culture/' + id);
+    return this.httpClient
+      .delete( url, {headers: cabecalho} )
+      .pipe(catchError(this.handleError));
+  }
+
 
 
 

@@ -1,5 +1,5 @@
 
-<h1 class="col-sm-12" >Deletar Solo?</h1>
+<h1 class="col-sm-12" >Deletar Cultura?</h1>
 
 <form class="form-horizontal" [formGroup]="formulario" (ngSubmit)="onSubmit()" >
     <div class="form-group"> <!--DESCRIÇÃO-->
@@ -7,7 +7,7 @@
           <label for="description" class="control-label">Descrição:</label>
       </div>
       <div class="col-sm-12">
-          <input type="text" class="form-control" formControlName="description" id="description" value="{{solo.description }}">
+          <input type="text" class="form-control" formControlName="description" id="description" value="{{cultura.description }}">
       </div>
     </div>
     <div class="form-group"> <!--Data Criação-->
@@ -15,13 +15,13 @@
           <label for="createdAt" class="control-label">Data Cadastro:</label>
       </div>
       <div class="col-sm-12">
-          <input disabled type="datetime" class="form-control" formControlName="createdAt" id="createdAt" value="{{solo.createdAt}}">
+          <input disabled type="datetime" class="form-control" formControlName="createdAt" id="createdAt" value="{{cultura.createdAt}}">
       </div>
     </div>
     <div class="form-group col-sm-12">
         <button type="submit" class="btn btn-danger">Deletar</button>
-        <a style="margin: 2px" class="btn btn-success" [routerLink]="[ '/solos']">Listagem de Solos</a>
-        <a style="margin: 2px" class="btn btn-primary" [routerLink]="[ '/solo/editar', solo.id ]">Editar</a>
+        <a style="margin: 2px" class="btn btn-success" [routerLink]="[ '/culturas']">Listagem de Culturas</a>
+        <a style="margin: 2px" class="btn btn-primary" [routerLink]="[ '/cultura/editar', cultura.id ]">Editar</a>
     </div>
 
   

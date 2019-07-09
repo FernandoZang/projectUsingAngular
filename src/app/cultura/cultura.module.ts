@@ -8,9 +8,10 @@ import { CulturaService } from './cultura.service';
 import { CulturaCadastrarComponent } from './cultura-cadastrar/cultura-cadastrar.component';
 import { CulturaEditarComponent } from './cultura-editar/cultura-editar.component';
 import { CulturaDetalhesComponent } from './cultura-detalhes/cultura-detalhes.component';
+import { CulturaDeletarComponent } from './cultura-deletar/cultura-deletar.component';
 
 @NgModule({
-  declarations: [CulturaListagemComponent, CulturaCadastrarComponent, CulturaEditarComponent, CulturaDetalhesComponent],
+  declarations: [CulturaListagemComponent, CulturaCadastrarComponent, CulturaEditarComponent, CulturaDetalhesComponent, CulturaDeletarComponent],
   imports: [
     CommonModule,
     CulturaRoutingModule,

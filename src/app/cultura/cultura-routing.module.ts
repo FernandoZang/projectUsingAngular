@@ -1,3 +1,4 @@
+import { CulturaDeletarComponent } from './cultura-deletar/cultura-deletar.component';
 import { CulturaDetalhesComponent } from './cultura-detalhes/cultura-detalhes.component';
 import { CulturaCadastrarComponent } from './cultura-cadastrar/cultura-cadastrar.component';
 import { CulturaListagemComponent } from './cultura-listagem/cultura-listagem.component';
@@ -10,7 +11,8 @@ const routes: Routes = [
   {path: 'culturas', component: CulturaListagemComponent, canActivate: [AuthGuard]},
   {path: 'cultura/cadastrar', component: CulturaCadastrarComponent, canActivate: [AuthGuard]},
   {path: 'cultura/editar/:id', component: CulturaEditarComponent, canActivate: [AuthGuard]},
-  {path: 'cultura/detalhes/:id', component: CulturaDetalhesComponent, canActivate: [AuthGuard]}
+  {path: 'cultura/detalhes/:id', component: CulturaDetalhesComponent, canActivate: [AuthGuard]},
+  {path: 'cultura/deletar/:id', component: CulturaDeletarComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
