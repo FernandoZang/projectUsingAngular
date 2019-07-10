@@ -1,3 +1,4 @@
+import { Solo } from './../solo/Solo';
 import { catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { AuthUtilService } from './../login/auth-util.service';
@@ -37,12 +38,17 @@ export class AreaService {
   }
 
 
-  public cadastrar(description: string){
-    const body = JSON.stringify({description});
+  public cadastrar(description: string, geometry: string, id: number){
+    let s: Solo = new Solo();
+    s.id = id;
+    const sStr = JSON.stringify( {s} );
+    const body = JSON.stringify( {description:description, geometry:geometry, sStr  } );
+    console.log(body);
     let cabecalho: HttpHeaders = this.getHeaders();
     let url = getDefaultURL('area');
     return this.httpClient.post( url, body, {headers: cabecalho} ).pipe(catchError(this.handleError));
   }
+
 
 
 

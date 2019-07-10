@@ -2,11 +2,15 @@
 
 export class Solo{
 
-    id: number;
+    public id: number;
     description: string;
     createdAt: string;
 
     d: Date;
+
+    public Solo(id){
+        this.id = id;
+    }
 
     
    get getAnoMesDia(): string{
