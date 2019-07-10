@@ -46,7 +46,7 @@ export class AreaCadastrarComponent implements OnInit {
 
 
   onSubmit(){
-    this.areaService.cadastrar(this.f.description.value, this.f.soil.value, this.f.geometry.value).subscribe(
+    this.areaService.cadastrar(this.f.description.value, this.f.geometry.value, this.f.soil.value).subscribe(
       () =>{
         this.route.navigate(['areas']);
       },

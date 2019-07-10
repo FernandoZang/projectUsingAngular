@@ -1,6 +1,6 @@
 
 
-<h1 class="col-sm-12" >Cadastrar Area</h1>
+<h1 class="col-sm-12" >Editar Area</h1>
 <form class="form-horizontal" [formGroup]="formulario" (ngSubmit)="onSubmit()" >
     <div class="form-group">
 
@@ -8,14 +8,14 @@
           <label for="description" class="control-label">Descrição</label>
       </div>
       <div class="col-sm-12">
-          <input type="text" class="form-control" formControlName="description" id="description"  required>
+          <input type="text" class="form-control" formControlName="description" id="description" value="{{area.description }}" required>
       </div>
 
       <div class="col-sm-12">
           <label for="geometry" class="control-label">Geometria:</label>
       </div>
       <div class="col-sm-12">
-          <input type="text" class="form-control" formControlName="geometry" id="geometry" required>
+          <input type="text" class="form-control" formControlName="geometry" id="geometry" value="{{area.geometry}}" >
       </div>
 
       <div class="col-sm-12">
@@ -23,12 +23,15 @@
       </div>
       <div class="col-sm-12">
         <select class="form-control" formControlName="soil" id="soil" required>
-          <option *ngFor="let s of solos" [value]="s.id">{{s.description}}</option>
+          <!--
+            <option  [value]="solo.id" selected>{{solo.description}} </option>
+          -->
+          <option *ngFor="let s of solos" [value]="s.id" >{{s.description}}</option>
         </select>
       </div>
     </div>
     <div class="form-group col-sm-12">
-        <button type="submit" class="btn btn-success">Cadastrar</button>
+        <button type="submit" class="btn btn-success">Salvar</button>
     </div>
       
   

@@ -38,6 +38,7 @@ export class AreaService {
   }
 
 
+  /*
   public cadastrar(description: string, geometry: string, id: number){
     let s: Solo = new Solo();
     s.id = id;
@@ -48,9 +49,36 @@ export class AreaService {
     let url = getDefaultURL('area');
     return this.httpClient.post( url, body, {headers: cabecalho} ).pipe(catchError(this.handleError));
   }
+  */
+
+ public cadastrar(description: string, geometry: string, id: number){
+  
+  const body = JSON.stringify( {description:description, geometry:geometry, soil:{id:id}  } );
+  console.log(body);
+  let cabecalho: HttpHeaders = this.getHeaders();
+  let url = getDefaultURL('area');
+  return this.httpClient.post( url, body, {headers: cabecalho} ).pipe(catchError(this.handleError));
+
+ }
 
 
 
+  public getById(id: number){
+    let cabecalho: HttpHeaders = this.getHeaders();
+    let url = getDefaultURL('area/' + id);
+    console.log("url getById: " + url);
+    this.result = this.httpClient.get<Area>( url, {headers: cabecalho} ).pipe(catchError(this.handleError));
+    return this.result;
+  }
+
+
+  public editar(idArea: number, descricao: string, geometria: string, idSolo: number) {
+    const body = JSON.stringify({ id: idArea, description: descricao, geometry:geometria, soil:{id:idSolo} });
+    console.log("enviando: " + body);
+    return this.httpClient
+      .put( getDefaultURL('area'), body, { headers: this.getHeaders() })
+      .pipe(catchError(this.handleError));
+  }
 
 
 
