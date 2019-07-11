@@ -1,0 +1,47 @@
+<h1 class="col-sm-12" >Detalhes Area</h1>
+<form class="form-horizontal" [formGroup]="formulario" (ngSubmit)="onSubmit()" >
+    <div class="form-group">
+
+      <div class="col-sm-12">
+          <label for="description" class="control-label">Descrição</label>
+      </div>
+      <div class="col-sm-12">
+          <input type="text" class="form-control" formControlName="description" id="description" value="{{area.description }}" disabled>
+      </div>
+
+      <div class="col-sm-12">
+          <label for="geometry" class="control-label">Geometria:</label>
+      </div>
+      <div class="col-sm-12">
+          <input type="text" class="form-control" formControlName="geometry" id="geometry" value="{{area.geometry}}" disabled >
+      </div>
+
+      <div class="col-sm-12">
+          <label for="createdAt" class="control-label">Data Cadastro:</label>
+      </div>
+      <div class="col-sm-12">
+          <input type="text" class="form-control" formControlName="createdAt" id="createdAt" value="{{area.createdAt  }}" disabled >
+      </div>
+
+      <div class="col-sm-12">
+        <label for="soil" class="control-label">Solo:</label>
+      </div>
+      <div class="col-sm-12">
+        <!--
+        <select class="form-control" formControlName="soil" id="soil" required>          
+            <option  [value]="solo.id" selected>{{solo.description}} </option>          
+          <option *ngFor="let s of solos" [value]="s.id" >{{s.description}}</option>
+        </select>
+        -->
+        <input type="text" class="form-control" formControlName="soil" id="soil" value="{{area.soil.description}}" disabled>
+        
+      </div>
+    </div>
+    <div class="form-group col-sm-12" >
+        <a style="margin: 2px" class="btn btn-success" [routerLink]="[ '/areas']" >Areas</a>
+        <a style="margin: 2px" class="btn btn-primary" [routerLink]="[ '/area/editar', area.id ]" >Editar</a>
+        <a style="margin: 2px" class="btn btn-danger" [routerLink]="[ '/area/deletar', area.id ]" >Deletar</a>
+    </div>
+      
+  
+</form>

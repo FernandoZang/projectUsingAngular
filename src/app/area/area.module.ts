@@ -7,9 +7,10 @@ import { AreaListagemComponent } from './area-listagem/area-listagem.component';
 import { AreaCadastrarComponent } from './area-cadastrar/area-cadastrar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AreaEditarComponent } from './area-editar/area-editar.component';
+import { AreaDetalhesComponent } from './area-detalhes/area-detalhes.component';
 
 @NgModule({
-  declarations: [AreaListagemComponent, AreaCadastrarComponent, AreaEditarComponent],
+  declarations: [AreaListagemComponent, AreaCadastrarComponent, AreaEditarComponent, AreaDetalhesComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

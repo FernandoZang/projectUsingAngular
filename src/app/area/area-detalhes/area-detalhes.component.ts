@@ -1,18 +1,17 @@
 import { Solo } from 'src/app/solo/Solo';
-import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { Area } from './../Area';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { AreaService } from '../area.service';
-import { Area } from '../Area';
 import { SoloService } from 'src/app/solo/solo.service';
 
 @Component({
-  selector: 'app-area-editar',
-  templateUrl: './area-editar.component.html',
-  styleUrls: ['./area-editar.component.css']
+  selector: 'app-area-detalhes',
+  templateUrl: './area-detalhes.component.html',
+  styleUrls: ['./area-detalhes.component.css']
 })
-export class AreaEditarComponent implements OnInit {
-
+export class AreaDetalhesComponent implements OnInit {
 
 
   id;
@@ -25,6 +24,14 @@ export class AreaEditarComponent implements OnInit {
   
   message: string;
 
+  
+
+  //private obsCultura :Observable<Cultura>;
+
+  public solos: Solo[];
+  public solo: Solo;
+  public area: Area;
+
 
   constructor(
     private areaService: AreaService,
@@ -35,9 +42,12 @@ export class AreaEditarComponent implements OnInit {
   ) {
    }
 
-   public area: Area;
-   public solos: Solo[];
-   public solo: Solo;
+
+
+
+
+
+  
 
 
 
@@ -55,11 +65,8 @@ export class AreaEditarComponent implements OnInit {
 
     this.getSolos();
     this.getAreaById(this.id);
-
-    //this.f.soil.setValue(this.solo.description.toString());
-
-  }//onInit
-
+  
+  }//ngOnInit
 
   private getAreaById(id: number){
     this.areaService.getById(this.id).subscribe( (dados:Area) =>{ this.area = dados; });
@@ -72,24 +79,8 @@ export class AreaEditarComponent implements OnInit {
 
 
 
-
-
-
   get f() {
     return this.formulario.controls;
   }
-
-
-
-
-  onSubmit(){
-    this.areaService.editar(this.id, this.f.description.value, this.f.geometry.value, this.f.soil.value).subscribe(() => {
-      this.router.navigate(['areas']);
-    },
-    (error) => {
-      this.message = error;
-    });
-  }
-
 
 }
