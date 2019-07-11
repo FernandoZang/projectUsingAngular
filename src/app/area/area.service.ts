@@ -82,6 +82,21 @@ export class AreaService {
 
 
 
+  public deletar(id: number){
+    let cabecalho: HttpHeaders = this.getHeaders();
+    let url = getDefaultURL('area/' + id);
+    return this.httpClient
+      .delete( url, {headers: cabecalho} )
+      .pipe(catchError(this.handleError));
+  }
+
+
+
+
+
+
+
+
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {

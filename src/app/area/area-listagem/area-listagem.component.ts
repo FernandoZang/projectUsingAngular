@@ -23,7 +23,6 @@ export class AreaListagemComponent implements OnInit {
   public listarAreas(){
     //console.log(this.solos)
     this.areaService.getAll().subscribe(dados=>this.areas = dados);
-   
   }
 
  

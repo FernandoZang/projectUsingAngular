@@ -1,3 +1,4 @@
+import { AreaDeletarComponent } from './area-deletar/area-deletar.component';
 import { AreaDetalhesComponent } from './area-detalhes/area-detalhes.component';
 import { AreaEditarComponent } from './area-editar/area-editar.component';
 import { AreaCadastrarComponent } from './area-cadastrar/area-cadastrar.component';
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path: 'areas', component: AreaListagemComponent, canActivate: [AuthGuard]},
   {path: 'area/cadastrar', component: AreaCadastrarComponent, canActivate: [AuthGuard]},
   {path: 'area/editar/:id', component: AreaEditarComponent, canActivate: [AuthGuard]},
-  {path: 'area/detalhes/:id', component: AreaDetalhesComponent, canActivate: [AuthGuard]}
+  {path: 'area/detalhes/:id', component: AreaDetalhesComponent, canActivate: [AuthGuard]},
+  {path: 'area/deletar/:id', component: AreaDeletarComponent, canActivate: [AuthGuard]}
 ];
 
 

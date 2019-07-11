@@ -8,9 +8,10 @@ import { AreaCadastrarComponent } from './area-cadastrar/area-cadastrar.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { AreaEditarComponent } from './area-editar/area-editar.component';
 import { AreaDetalhesComponent } from './area-detalhes/area-detalhes.component';
+import { AreaDeletarComponent } from './area-deletar/area-deletar.component';
 
 @NgModule({
-  declarations: [AreaListagemComponent, AreaCadastrarComponent, AreaEditarComponent, AreaDetalhesComponent],
+  declarations: [AreaListagemComponent, AreaCadastrarComponent, AreaEditarComponent, AreaDetalhesComponent, AreaDeletarComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
